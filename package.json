@@ -1,25 +1,51 @@
 {
   "name": "dataform-bigquery-syntax",
-  "displayName": "dataform-bigquery-syntax",
-  "description": "syntax highlighting for sqlx files and bigquery flavored sql",
+  "displayName": "Dataform BigQuery Syntax",
+  "description": "Syntax highlighting for BigQuery flavored SQL in Dataform .sqlx files",
   "version": "0.0.1",
+  "author": {
+    "name": "Brian Buie"
+  },
+  "license": "MIT",
   "engines": {
     "vscode": "^1.78.0"
   },
   "categories": [
-    "Programming Languages"
+    "Programming Languages",
+    "Snippets"
+  ],
+  "keywords": [
+    "sqlx",
+    "bigquery",
+    "dataform"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/brianbuie/vscode-dataform-bigquery-syntax.git"
+  },
+  "extensionDependencies": [
+    "shinichi-takii.sql-bigquery"
   ],
   "contributes": {
-    "languages": [{
-      "id": "sqlx",
-      "aliases": ["bq-sqlx", "sqlx"],
-      "extensions": [".sqlx"],
-      "configuration": "./language-configuration.json"
-    }],
-    "grammars": [{
-      "language": "sqlx",
-      "scopeName": "source.sqlx",
-      "path": "./syntaxes/sqlx.tmLanguage.json"
-    }]
+    "languages": [
+      {
+        "id": "sqlx",
+        "aliases": [
+          "bq-sqlx",
+          "sqlx"
+        ],
+        "extensions": [
+          ".sqlx"
+        ],
+        "configuration": "./language-configuration.json"
+      }
+    ],
+    "grammars": [
+      {
+        "language": "sqlx",
+        "scopeName": "source.sqlx",
+        "path": "./syntaxes/sqlx.tmLanguage.json"
+      }
+    ]
   }
 }
