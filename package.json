@@ -3,6 +3,7 @@
   "displayName": "Dataform BigQuery Syntax",
   "description": "Syntax highlighting for BigQuery flavored SQL in Dataform .sqlx files",
   "version": "0.0.1",
+  "publisher": "Brian Buie",
   "author": {
     "name": "Brian Buie"
   },
@@ -29,11 +30,7 @@
   "contributes": {
     "languages": [
       {
-        "id": "sqlx",
-        "aliases": [
-          "bq-sqlx",
-          "sqlx"
-        ],
+        "id": "bq-sqlx",
         "extensions": [
           ".sqlx"
         ],
@@ -42,9 +39,32 @@
     ],
     "grammars": [
       {
-        "language": "sqlx",
-        "scopeName": "source.sqlx",
-        "path": "./syntaxes/sqlx.tmLanguage.json"
+        "language": "bq-sqlx",
+        "scopeName": "source.bq-sqlx",
+        "path": "./syntaxes/bq-sqlx.tmLanguage.json",
+        "embeddedLanguage": {
+          "source.js": "javascript"
+        }
+      },
+      {
+        "injectTo": [
+          "source.js"
+        ],
+        "scopeName": "inline.template-tagged-languages",
+        "path": "./syntaxes/grammar.json",
+        "embeddedLanguages": {
+          "meta.embedded.block.bq": "bq-sqlx"
+        }
+      },
+      {
+        "injectTo": [
+          "source.js"
+        ],
+        "scopeName": "inline.template-tagged-languages.reinjection",
+        "path": "./syntaxes/reinject-grammar.json",
+        "embeddedLanguages": {
+          "meta.template.expression.js": "javascript"
+        }
       }
     ]
   }

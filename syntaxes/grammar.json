@@ -1,0 +1,37 @@
+{
+  "fileTypes": [],
+  "injectionSelector": "L:source.js -comment -(string - meta.embedded), L:source.jsx -comment -(string - meta.embedded), L:source.js.jsx -comment -(string - meta.embedded), L:source.ts -comment -(string - meta.embedded), L:source.tsx -comment -(string - meta.embedded)",
+  "patterns": [
+    {
+      "begin": "(?i)(\\s?\\/?\\*?\\s?(bq)\\s?\\*?\\/?\\s?)(`)",
+      "beginCaptures": {
+        "1": {
+          "name": "comment.block.js"
+        }
+      },
+      "end": "(`)",
+      "endCaptures": {
+        "0": {
+          "name": "string.js"
+        },
+        "1": {
+          "name": "punctuation.definition.string.quasi.end.js"
+        }
+      },
+      "patterns": [
+        {
+          "contentName": "meta.embedded.block.bq",
+          "patterns": [
+            {
+              "include": "source.bq-sqlx"
+            }
+          ]
+        },
+        { "include": "source.js#template-substitution-element" },
+        { "include": "source.js#string-character-escape" },
+        { "match": "." }
+      ]
+    }
+  ],
+  "scopeName": "inline.template-tagged-languages"
+}

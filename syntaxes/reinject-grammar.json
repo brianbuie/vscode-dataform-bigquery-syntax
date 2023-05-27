@@ -1,0 +1,10 @@
+{
+  "fileTypes": [],
+  "injectionSelector": "L:source.js (meta.embedded.block.bq)",
+  "patterns": [
+    {
+      "include": "source.js#template-substitution-element"
+    }
+  ],
+  "scopeName": "inline.template-tagged-languages.reinjection"
+}
